@@ -11,11 +11,10 @@ import java.util.Set;
 
 import javax.imageio.ImageIO;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 import com.domain.MatlabAPI;
+import com.domain.MatlabDecorator;
 import com.mathworks.toolbox.javabuilder.MWNumericArray;
 import com.service.ImageManager;
 
@@ -96,7 +95,7 @@ public class MainWindowController implements Initializable {
     @FXML
     private ListView<String> log_list;
     
-	static MatlabAPI mAPI;
+	static MatlabAPI mAPI=new MatlabDecorator();
 	private String imagePath = "C:\\";
 	BufferedImage mainViewImage;
 	Object[] USImage = null;
@@ -156,12 +155,7 @@ public class MainWindowController implements Initializable {
 		});  
 	}
 
-	static {
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext(
-				"ApplicationContext.xml");
-		mAPI = (MatlabAPI) applicationContext.getBean("MatlabAPI");
-		((ConfigurableApplicationContext) applicationContext).close();
-	}
+	
 
 	@FXML
 	void openUSImage(ActionEvent event) throws IOException {

@@ -8,7 +8,82 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane fx:id="root" minWidth="607.0" prefHeight="418.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.presentation.ClusterController">
-  
+<AnchorPane fx:id="root" minWidth="607.0" prefHeight="418.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.segmentation_tool.ClusterController">
+  <!-- TODO Add Nodes -->
+  <children>
+    <TitledPane animated="false" prefHeight="420.0" prefWidth="507.0" text="Processing image" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <content>
+            <AnchorPane prefHeight="403.0" prefWidth="625.0">
+               <children>
+                  <SplitPane dividerPositions="0.5" layoutX="9.0" layoutY="30.0" prefHeight="363.0" prefWidth="598.0">
+                    <items>
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                        <ImageView fx:id="mainView" fitHeight="369.0" fitWidth="422.0" pickOnBounds="true" preserveRatio="false" />
+                           </children>
+                        </AnchorPane>
+                        <AnchorPane prefHeight="376.0" prefWidth="159.0">
+                           <children>
+                              <Button layoutX="36.0" layoutY="33.0" mnemonicParsing="false" text="Button" />
+                              <Button layoutX="36.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
+                              <Button layoutX="36.0" layoutY="133.0" mnemonicParsing="false" text="Button" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </content>
+    </TitledPane>
+    <MenuBar prefHeight="25.0" prefWidth="732.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+                  <MenuItem fx:id="menuItemOpenUSImage" mnemonicParsing="false" onAction="#openUSImage" text="Open image" />
+            <MenuItem fx:id="menuItemRun" mnemonicParsing="false" onAction="#runSegmentation" text="Run" />
+            <MenuItem fx:id="menuItemExit" mnemonicParsing="false" onAction="#exit" text="Exit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Filter">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Sigma">
+              <graphic>
+                <TextField fx:id="sigma" prefWidth="200.0" text="-1" />
+              </graphic>
+            </MenuItem>
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Features">
+               <items>
+                  <RadioMenuItem fx:id="radioStatistical" mnemonicParsing="false" selected="true" text="Statistic">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggleFeatures" />
+                     </toggleGroup></RadioMenuItem>
+                  <RadioMenuItem fx:id="radioDFT" mnemonicParsing="false" text="DFT" toggleGroup="$toggleFeatures" />
+                  <RadioMenuItem fx:id="radio2DFT" mnemonicParsing="false" text="2DFT" toggleGroup="$toggleFeatures" />
+                  <MenuItem mnemonicParsing="false" text="Window size">
+                     <graphic>
+                        <TextField fx:id="winSize" text="20" />
+                     </graphic>
+                  </MenuItem>
+               </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Cluster">
+               <items>
+                  <RadioMenuItem fx:id="radioKNN" mnemonicParsing="false" text="KNN">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="toggleCluster" />
+                     </toggleGroup></RadioMenuItem>
+                  <RadioMenuItem fx:id="radioFCM" mnemonicParsing="false" selected="true" text="FCM" toggleGroup="$toggleCluster" />
+                  <RadioMenuItem fx:id="radioPNN" mnemonicParsing="false" text="PNN" toggleGroup="$toggleCluster" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+  </children>
 </AnchorPane>
