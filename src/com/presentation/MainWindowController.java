@@ -170,7 +170,9 @@ public class MainWindowController implements Initializable {
 			mainViewImage = ImageIO.read(file);
 			USImage = mAPI.readImage(file.getAbsolutePath());
 			displayMainView();
+			/* Matlab image */
 			objectImages.put(new Integer(objectImages.size()+1), USImage);
+			/* UI image */
 			bufferedImages.put(new Integer(bufferedImages.size()+1), mainViewImage);
 			number_history=bufferedImages.size()+1;
 			logMessage="Open image: "+file.getAbsolutePath();

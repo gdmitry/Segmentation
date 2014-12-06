@@ -13,20 +13,20 @@
   <children>
     <TitledPane animated="false" prefHeight="420.0" prefWidth="507.0" text="Processing image" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <content>
-            <AnchorPane prefHeight="403.0" prefWidth="625.0">
+            <AnchorPane prefHeight="364.0" prefWidth="611.0">
                <children>
-                  <SplitPane dividerPositions="0.5" layoutX="9.0" layoutY="30.0" prefHeight="363.0" prefWidth="598.0">
+                  <SplitPane dividerPositions="0.6912751677852349" layoutX="9.0" layoutY="30.0" prefHeight="363.0" prefWidth="598.0">
                     <items>
-                        <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                        <AnchorPane fx:id="viewId" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                        <ImageView fx:id="mainView" fitHeight="369.0" fitWidth="422.0" pickOnBounds="true" preserveRatio="false" />
+                        <ImageView fx:id="mainView" fitHeight="361.0" fitWidth="474.0" layoutX="-2.0" layoutY="11.0" pickOnBounds="true" preserveRatio="false" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane prefHeight="376.0" prefWidth="159.0">
+                        <AnchorPane prefHeight="372.0" prefWidth="131.0">
                            <children>
-                              <Button layoutX="36.0" layoutY="33.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="36.0" layoutY="83.0" mnemonicParsing="false" text="Button" />
-                              <Button layoutX="36.0" layoutY="133.0" mnemonicParsing="false" text="Button" />
+                              <Button fx:id="sickButton" layoutX="36.0" layoutY="33.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="54.0" text="Sick" />
+                              <Button fx:id="suspectButton" layoutX="36.0" layoutY="83.0" mnemonicParsing="false" text="Suspect" />
+                              <Button fx:id="phoneButton" layoutX="37.0" layoutY="130.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="56.0" text="Phone" />
                            </children>
                         </AnchorPane>
                     </items>

@@ -98,4 +98,15 @@ public class MatlabDecorator implements MatlabAPI {
 		return null;
 	}
 
+	@Override
+	public Object[] getDFT(String image_path) {
+		try {
+			return matlab.getDFT(1,image_path);
+		} catch (MWException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
 }

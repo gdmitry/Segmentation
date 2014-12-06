@@ -21,8 +21,8 @@ public class ClusterConstructor extends Application {
 					.getResource("ClusterWindow.fxml"));
 			Scene scene = new Scene(page);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("ClusterConstructor");
-			primaryStage.setResizable(false);
+			primaryStage.setTitle("ClusterTool");
+		//	primaryStage.setResizable(false);
 			primaryStage.show();			
 		} catch (Exception ex) {
 			Logger.getLogger(ClusterConstructor.class.getName()).log(Level.SEVERE, null,

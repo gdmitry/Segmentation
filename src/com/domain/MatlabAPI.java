@@ -12,5 +12,6 @@ public interface MatlabAPI {
 	Object[] getFCMClustrering(Object[] features, int mask,int w,int h);
 	Object[] getHomomorphicFilter(Object[] image,double sigma);
 	Object[] getDFTFeatures(Object[] image, int window);
+	Object[] getDFT(String image_path);
 	
 }
