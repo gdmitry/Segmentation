@@ -109,4 +109,28 @@ public class MatlabDecorator implements MatlabAPI {
 		return null;
 	}
 
+	@Override
+	public void writeToXLS(String path, Object[] m, String sheet_name,
+			String cell_num) {
+		try {
+			 matlab.writeToXls(path,m[0],sheet_name,cell_num);
+		} catch (MWException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+	@Override
+	public void writeToXLS(String path, String m, String sheet_name,
+			String cell_num) {
+		try {
+			 matlab.writeToXls(path,m,sheet_name,cell_num);
+		} catch (MWException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
 }

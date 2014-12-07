@@ -13,5 +13,6 @@ public interface MatlabAPI {
 	Object[] getHomomorphicFilter(Object[] image,double sigma);
 	Object[] getDFTFeatures(Object[] image, int window);
 	Object[] getDFT(String image_path);
-	
+	void writeToXLS(String path, Object[] m,String sheet_name, String cell_num);
+	void writeToXLS(String path, String m,String sheet_name, String cell_num);
 }

@@ -214,6 +214,7 @@ public class ClusterController implements Initializable {
 					mainViewImage);
 			number_history = bufferedImages.size() + 1;
 			logMessage = "Open image: " + file.getAbsolutePath();
+			i=2;
 		}
 	}
 
@@ -336,11 +337,39 @@ public class ClusterController implements Initializable {
 	@FXML
 	void runSegmentation(ActionEvent event) {
 		createImages();
-		HashSet<String> hs = fillImageDB("C:\\sick");
+		outFeatures("sick",1);
+		outFeatures("suspect",2);
+		outFeatures("phone",3);
+		/*mAPI.writeToXLS("C:\\11.xlsx","VH1" ,"output", "A1");
+		mAPI.writeToXLS("C:\\11.xlsx","VH2" ,"output", "B1");
+		mAPI.writeToXLS("C:\\11.xlsx","VH3" ,"output", "C1");
+		mAPI.writeToXLS("C:\\11.xlsx","VH4" ,"output", "D1");
+		mAPI.writeToXLS("C:\\11.xlsx","VH5" ,"output", "E1");*/
+		
+	}
+	int i=2;
+	private void outFeatures(String path, int out_label) {
+		HashSet<String> hs = fillImageDB("C:\\"+path);
 		Iterator<String> iterator = hs.iterator();
+		String out="";
+		if (out_label==1) {
+			out="001";
+		}
+		if (out_label==2) {
+			out="010";
+		}
+		if (out_label==3) {
+			out="100";
+		}
 		while (iterator.hasNext()) {
-			MWNumericArray filt = (MWNumericArray) (mAPI.getDFT(iterator.next())[0]);
-			System.out.println(filt);
+		//	MWNumericArray filt = (MWNumericArray) (mAPI.getDFT(iterator.next())[0]);
+			mAPI.writeToXLS("C:\\11.xlsx",(mAPI.getDFT(iterator.next())) ,"output", "A"+i);
+			//String out=String.format("%3s", Integer.toBinaryString(out_label)).replace(' ', '0');			
+			mAPI.writeToXLS("C:\\11.xlsx",new Object[]{out.substring(0, 1)} ,"output", "C"+i);
+			mAPI.writeToXLS("C:\\11.xlsx",new Object[]{out.substring(1, 2)} ,"output", "D"+i);
+			mAPI.writeToXLS("C:\\11.xlsx",new Object[]{out.substring(2, 3)} ,"output", "E"+i);
+			//System.out.println(filt);
+			i++;
 		}
 	}
 
